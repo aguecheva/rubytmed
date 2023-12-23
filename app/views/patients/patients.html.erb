@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+
+<body>
+  <header>
+    <h1>Mis pacientes</h1>
+  </header>
+
+  
+  <div class="interior">
+    <a href="" class="logo"><img src="images/logo.png" alt=""></a>
+    <nav class="navegation">
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li>
+          <a href="Funciones">Funciones</a>
+          <ul>
+            <li><%= link_to 'Pacientes', patients_path %></li>
+          </ul>
+        </li>
+        <li><a href="Contacto">Contacto</a></li>
+        <li><a href="Base de datos">Base de datos</a></li>
+        <li><a href="Log in">Log in</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+  <main>
+    <%= form_with(url: "/patients", method: "get") do %>
+      <%= label_tag(:q, "Buscar por nombre:") %>
+      <%= text_field_tag(:q, params[:q]) %>
+      <%= submit_tag("Buscar") %>
+    <% end %>
+
+    <ul>
+    <% @patients.each do |patient| %>
+      <li>
+        <%= link_to patient.name, patient_path(patient) %>
+      </li>
+    <% end %>
+    </ul>
+  </main>
+
+  <footer>
+    <!-- Aquí puedes agregar un pie de página si lo necesitas -->
+  </footer>
+</body>
+</html>

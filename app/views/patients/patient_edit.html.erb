@@ -1,0 +1,9 @@
+<%= form_with(model: @patient, local: true) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :lastname %>
+  <%= form.text_field :lastname %>
+
+  <%= form.submit "Guardar cambios" %>
+<% end %>

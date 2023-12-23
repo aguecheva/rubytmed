@@ -1,0 +1,47 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a;
+  color: beige;
+}
+
+form {
+  margin-bottom: 1em;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+.navegation { 
+  background-color: black ; 
+}
+
+.navegation ul li {
+  position: relative;
+  display: inline-block;
+}
+
+.navegation ul li ul {
+  display: none;
+  position: absolute;
+  background-color: #787676; 
+}
+
+.navegation ul li:hover ul {
+  display: block;
+}
+
+.navegation ul li ul li {
+  display: block;
+  transition: background-color 0.3s ease; 
+}
+
+.navegation ul li ul li:hover {
+  background-color: #555; 
+}
+

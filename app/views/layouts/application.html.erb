@@ -15,8 +15,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <a href="" class="logo"><img src="images/logo.png" alt=""></a>
-  </head>
+    <%= image_tag 'logo.jpg', class: 'logo', id: 'logo_first' %>  </head>
 
   <body>
     <%= yield %>

@@ -9,8 +9,6 @@
   <header>
     <h1>Mis pacientes</h1>
   </header>
-
-  
   <div class="interior">
     <a href="" class="logo"><img src="images/logo.png" alt=""></a>
     <nav class="navegation">
@@ -30,19 +28,33 @@
     </nav>
   </div>
   <main>
+
     <%= form_with(url: "/patients", method: "get") do %>
       <%= label_tag(:q, "Buscar por nombre:") %>
       <%= text_field_tag(:q, params[:q]) %>
       <%= submit_tag("Buscar") %>
     <% end %>
+    
+    
 
-    <ul>
-    <% @patients.each do |patient| %>
-      <li>
-        <%= link_to patient.name, patient_path(patient) %>
-      </li>
-    <% end %>
-    </ul>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>DNI</th>
+      </tr>
+      <% @patients.each do |patient| %>
+        <tr>
+          <td><%= link_to patient.name, patient_path(patient) %></td>
+          <td><%= patient.lastname %></td>
+          <td><%= patient.dni %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <!-- Botón para crear un nuevo paciente -->
+    <%= link_to 'Crear nuevo paciente', new_patient_path, class: 'new-patient' %>
+
   </main>
 
   <footer>

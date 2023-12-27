@@ -1,13 +1,35 @@
+header {
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
+}
+
+/* Tipografía y colores generales */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #1a1a1a;
-  color: beige;
+  color: #f4a261;
+  text-shadow: 2px 2px 4px #000000;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  background-color: #1a1a1a;
+  color: #f4a261;
+  text-shadow: 2px 2px 4px #000000;}
+
+
+/* Estilos del formulario de búsqueda */
 form {
-  margin-bottom: 1em;
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  margin-bottom: 1em; /* Espacio debajo del formulario */
 }
 
+/* Estilos de lista */
 ul {
   list-style-type: none;
   padding: 0;
@@ -17,31 +39,119 @@ li {
   margin-bottom: 0.5em;
 }
 
+/* Estilos de la barra de navegación */
 .navegation { 
-  background-color: black ; 
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  background-color: black;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .navegation ul li {
   position: relative;
   display: inline-block;
+  margin-right: 20px;
+}
+
+.navegation ul li a {
+  font-family: 'Roboto', sans-serif;
+  color: #f4a261;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .navegation ul li ul {
   display: none;
   position: absolute;
-  background-color: #787676; 
+  background-color: none;
+}
+
+
+.navegation ul li:hover {
+  background-color: #f4a261;
+  animation: glowing 2s infinite;
 }
 
 .navegation ul li:hover ul {
   display: block;
 }
 
+.navegation ul li a:hover {
+  color: #770000;
+  text-shadow: 0 0 5px #f4a261, 0 0 10px #f4a261, 0 0 15px #f4a261, 0 0 20px #f4a261;
+}
+
 .navegation ul li ul li {
+  color: #f4a261; 
+  text-shadow: 2px 2px 4px #000000;
   display: block;
   transition: background-color 0.3s ease; 
+  font-family: 'Roboto', sans-serif;
+  color: #f4a261;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .navegation ul li ul li:hover {
-  background-color: #555; 
+  background-color: #f4a261; 
+  color: #770000; 
+  text-shadow: 0 0 5px #f4a261, 0 0 10px #f4a261, 0 0 15px #f4a261, 0 0 20px #f4a261; 
+  animation: glowing 2s infinite; 
 }
 
+
+/* Estilos de la tabla */
+table {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto; /* Centra la tabla horizontalmente */
+  margin-bottom: 1em; /* Espacio debajo de la tabla */
+  width: 80%; /* Ancho de la tabla */
+  table-layout: fixed; /* Asegura que las columnas tengan el mismo ancho */
+}
+
+/* Estilos de las celdas de la tabla */
+td, th {
+  padding: 0 4em; /* Espacio a los lados de cada celda */
+  
+}
+
+/* Estilos del botón */
+.new-patient {
+  font-family: 'Roboto';
+  display: block; /* Hace que el botón ocupe toda la línea */
+  width: fit-content; /* El ancho del botón se ajusta al contenido */
+  margin: 0 auto; /* Centra el botón horizontalmente */
+  color: #f4a261;
+  text-shadow: 2px 2px 4px #000000;
+  background-color: black;
+}
+
+#logo_first {
+  width: 150px;
+  height: auto;
+  margin-right: auto;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border: 2px solid transparent;
+  background-image: linear-gradient(white, white), linear-gradient(-45deg, #FFA500, black);
+  background-origin: border-box;
+  background-clip: content-box, border-box; 
+  box-decoration-break: clone;
+  animation: light 1s infinite linear;
+}
+
+@keyframes light {
+  to { background-position: 100% 0, 200% 0; }
+}
+
+#logo_first:hover {
+  box-shadow: 0px 0px 10px 5px rgba(255,165,0,0.5);
+}
+
+/* Animaciones */
+@keyframes glowing {
+  0% { box-shadow: 0 0 5px #f4a261, 0 0 10px #f4a261, 0 0 15px #f4a261, 0 0 20px #f4a261; }
+  50% { box-shadow: 0 0 20px #f4a261, 0 0 30px #f4a261, 0 0 40px #f4a261, 0 0 50px #f4a261; }
+  100% { box-shadow: 0 0 5px #f4a261, 0 0 10px #f4a261, 0 0 15px #f4a261, 0 0 20px #f4a261; }
+}

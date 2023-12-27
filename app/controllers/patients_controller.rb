@@ -3,7 +3,7 @@ class PatientsController < ApplicationController
   def patients    
 
     if params[:q]
-      @patients = Patient.where("name LIKE ?", "%#{params[:q]}%")
+      @patients = Patient.where("name LIKE ? OR lastname LIKE ? OR dni LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
     else
       @patients = Patient.all
     end
@@ -50,6 +50,7 @@ class PatientsController < ApplicationController
 
    private
     def patient_params
-      params.require(:patient).permit(:name, :lastname)
+        params.require(:patient).permit(:name, :lastname, :dni)
     end
+
 end

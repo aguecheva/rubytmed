@@ -1,3 +1,11 @@
+:root {
+  --color-primary: #101010;
+  --color-secondary: #3c0000;
+  --color-accent: #000000;
+  --color-tertiary: #ffffff;
+  --color-quaternary: #ca8181; 
+}
+
 header {
   display: flex;
   justify-content: center; /* Centra los elementos horizontalmente */
@@ -7,9 +15,11 @@ header {
 /* Tipografía y colores generales */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #1a1a1a;
-  color: #f4a261;
-  text-shadow: 2px 2px 4px #000000;
+  background-color: var(--color-primary);
+  color: var(--color-tertiary);
+  text-shadow: 2px 2px 4px var(--color-quaternary);
+  border-radius: 5px;
+
 }
 
 main {
@@ -17,9 +27,12 @@ main {
   flex-direction: column;
   justify-content: center;
   font-family: 'Roboto', sans-serif;
-  background-color: #1a1a1a;
-  color: #f4a261;
-  text-shadow: 2px 2px 4px #000000;}
+  background-color: var(--color-accent);
+  color: var(--color-tertiary);
+  text-shadow: 2px 2px 4px var(--color-quaternary);
+  border-radius: 5px;
+
+}
 
 
 /* Estilos del formulario de búsqueda */
@@ -27,6 +40,8 @@ form {
   display: flex;
   justify-content: center; /* Centra los elementos horizontalmente */
   margin-bottom: 1em; /* Espacio debajo del formulario */
+  border-radius: 5px;
+
 }
 
 /* Estilos de lista */
@@ -43,20 +58,26 @@ li {
 .navegation { 
   display: flex;
   justify-content: center; /* Centra los elementos horizontalmente */
-  background-color: black;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: var(--color-secondary);
+  box-shadow: 0px 8px 16px 0px var(--color-primary);
+  border-radius: 5px;
+
 }
 
 .navegation ul li {
   position: relative;
   display: inline-block;
   margin-right: 20px;
+    border-radius: 5px;
+
 }
 
 .navegation ul li a {
   font-family: 'Roboto', sans-serif;
-  color: #f4a261;
-  text-shadow: 2px 2px 4px #000000;
+  color: var(--color-quaternary);
+  text-shadow: 2px 2px 4px var(--color-quaternary);
+  border-radius: 5px;
+
 }
 
 .navegation ul li ul {
@@ -67,7 +88,7 @@ li {
 
 
 .navegation ul li:hover {
-  background-color: #f4a261;
+  background-color: var(--color-accent);
   animation: glowing 2s infinite;
 }
 
@@ -76,24 +97,24 @@ li {
 }
 
 .navegation ul li a:hover {
-  color: #770000;
-  text-shadow: 0 0 5px #f4a261, 0 0 10px #f4a261, 0 0 15px #f4a261, 0 0 20px #f4a261;
+  color: var(--color-tertiary);
+  text-shadow: 0 0 2px var(--color-quaternary), 0 0 5px var(--color-quaternary), 0 0 10px var(--color-quaternary), 0 0 15px var(--color-quaternary);
 }
 
 .navegation ul li ul li {
-  color: #f4a261; 
-  text-shadow: 2px 2px 4px #000000;
+  color: var(--color-quaternary); 
+  text-shadow: 2px 2px 4px var(--color-primary);
   display: block;
   transition: background-color 0.3s ease; 
   font-family: 'Roboto', sans-serif;
-  color: #f4a261;
-  text-shadow: 2px 2px 4px #000000;
+  color: var(--color-quaternary);
+  text-shadow: 2px 2px 4px var(--color-primary);
 }
 
 .navegation ul li ul li:hover {
-  background-color: #f4a261; 
-  color: #770000; 
-  text-shadow: 0 0 5px #f4a261, 0 0 10px #f4a261, 0 0 15px #f4a261, 0 0 20px #f4a261; 
+  background-color: var(--color-accent); 
+  color: var(--color-quaternary); 
+  text-shadow: 0 0 2px var(--color-quaternary), 0 0 5px var(--color-quaternary), 0 0 10px var(--color-quaternary), 0 0 15px var(--color-quaternary); 
   animation: glowing 2s infinite; 
 }
 
@@ -106,6 +127,9 @@ table {
   margin-bottom: 1em; /* Espacio debajo de la tabla */
   width: 80%; /* Ancho de la tabla */
   table-layout: fixed; /* Asegura que las columnas tengan el mismo ancho */
+  border-radius: 5px;
+  background-color: var(--color-primary);
+
 }
 
 /* Estilos de las celdas de la tabla */
@@ -120,9 +144,11 @@ td, th {
   display: block; /* Hace que el botón ocupe toda la línea */
   width: fit-content; /* El ancho del botón se ajusta al contenido */
   margin: 0 auto; /* Centra el botón horizontalmente */
-  color: #f4a261;
-  text-shadow: 2px 2px 4px #000000;
-  background-color: black;
+  color: var(--color-quaternary);
+  text-shadow: 2px 2px 4px var(--color-accent);
+  background-color: var(--color-primary);
+  border-radius: 5px;
+
 }
 
 #logo_first {
@@ -132,13 +158,15 @@ td, th {
   position: relative;
   top: 10px;
   left: 10px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px var(--color-quaternary);
   border: 2px solid transparent;
-  background-image: linear-gradient(white, white), linear-gradient(-45deg, #FFA500, black);
+  background-image: linear-gradient(white, white), linear-gradient(-45deg, var(--color-quaternary), var(--color-primary));
   background-origin: border-box;
   background-clip: content-box, border-box; 
   box-decoration-break: clone;
   animation: light 1s infinite linear;
+  border-radius: 5% 5% 5% 5%;
+
 }
 
 @keyframes light {
@@ -146,12 +174,39 @@ td, th {
 }
 
 #logo_first:hover {
-  box-shadow: 0px 0px 10px 5px rgba(255,165,0,0.5);
+  box-shadow: 0px 0px 10px 5px var(--color-accent);
 }
 
 /* Animaciones */
 @keyframes glowing {
-  0% { box-shadow: 0 0 5px #f4a261, 0 0 10px #f4a261, 0 0 15px #f4a261, 0 0 20px #f4a261; }
-  50% { box-shadow: 0 0 20px #f4a261, 0 0 30px #f4a261, 0 0 40px #f4a261, 0 0 50px #f4a261; }
-  100% { box-shadow: 0 0 5px #f4a261, 0 0 10px #f4a261, 0 0 15px #f4a261, 0 0 20px #f4a261; }
+  0% { box-shadow: 0 0 5px var(--color-tertiary), 0 0 10px var(--color-tertiary), 0 0 15px var(--color-tertiary), 0 0 20px var(--color-tertiary); }
+  50% { box-shadow: 0 0 20px var(--color-tertiary), 0 0 30px var(--color-tertiary), 0 0 40px var(--color-tertiary), 0 0 50px var(--color-tertiary); }
+  100% { box-shadow: 0 0 5px var(--color-tertiary), 0 0 10px var(--color-tertiary), 0 0 15px var(--color-tertiary), 0 0 20px var(--color-tertiary); }
+}
+
+.maquina-escribir {
+  display: flex;
+  -ms-flex-align: center;
+  font-size: large;
+  font-family: monospace;
+  white-space: nowrap;
+  width: 100ch;
+  animation: escribiendo 10s steps(100);
+  overflow: hidden;
+}
+
+.cursor {
+  animation: parpadeo-cursor 0.6s infinite;
+}
+
+@keyframes escribiendo {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes parpadeo-cursor {
+  50% {
+    opacity: 0;
+  }
 }

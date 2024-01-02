@@ -17,30 +17,82 @@
         <li><a href="Contacto">Contacto</a></li>
         <li><a href="Base de datos">Base de datos</a></li>
         <li><a href="Log in">Log in</a></li>
-        
       </ul>
     </nav>
   </div>
-  <main>
+  <style>
+  .data-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .data-group span {
+    margin-right: 20px;
+  }
+</style>
 
-    <h1><%= @patient.name %></h1>
-    <p>
-    <strong>Apellido:</strong>
-    <%= @patient.lastname %>
-    </p>
+<script>
+  function toggleDataGroup(event) {
+    var dataGroup = event.target.nextElementSibling;
+    dataGroup.style.display = dataGroup.style.display === 'none' ? 'flex' : 'none';
+  }
+</script>
 
-    <p>
-    <strong>DNI:</strong>
-    <%= @patient.dni %>
-    </p>
-    
-    <p>
-    <strong>Fecha de nacimiento: </strong>
-    <%= @patient.birth_date %>
-    </p>
+<main>
+  <h1><%= @patient.name + " " + @patient.lastname %></h1>
+    <div class="data-group">
+      <span><strong>DNI:</strong> <%= @patient.dni %></span>
+      <span><strong>Fecha de nacimiento: </strong> <%= @patient.birth_date %></span>
+    </div>
 
-    <!-- Agrega aquí más atributos según sea necesario -->
+    <h3 onclick="toggleDataGroup(event)">Datos de contacto</h3>
+    <div class="data-group">
+      <span><strong>Dirección:</strong> <%= @patient.try(:address) %></span>
+      <span><strong>Teléfono:</strong> <%= @patient.try(:phone) %></span>
+    </div>
 
+    <h3 onclick="toggleDataGroup(event)">Historia</h3>
+    <div class="data-group">
+      <span><strong>Historia familiar:</strong> <%= @patient.try(:family_history) %></span>
+      <span><strong>Historia personal:</strong> <%= @patient.try(:personal_history) %></span>
+    </div>
 
-    <%= link_to "Editar", edit_patient_path(@patient) %>
+    <h3 onclick="toggleDataGroup(event)">Composicion familiar</h3>
+    <div class="data-group">
+      <span><strong>Número de hijos:</strong> <%= @patient.try(:children) %></span>
+      <span><strong>Pareja:</strong> <%= @patient.try(:partner) %></span>
+      <span><strong>Padres:</strong> <%= @patient.try(:parents) %></span>
+      <span><strong>Hermanos:</strong> <%= @patient.try(:siblings) %></span>
+    </div>
+
+    <h3 onclick="toggleDataGroup(event)">Datos laborales</h3>
+    <div class="data-group">
+      <span><strong>Ocupación:</strong> <%= @patient.try(:occupation) %></span>
+    </div>
+
+    <h3 onclick="toggleDataGroup(event)">Habitos</h3>
+    <div class="data-group">
+      <span><strong>Dieta:</strong> <%= @patient.try(:diet) %></span>
+      <span><strong>Ejercicio:</strong> <%= @patient.try(:exercise) %></span>
+      <span><strong>Uso de sustancias:</strong> <%= @patient.try(:substance_use) %></span>
+      <span><strong>Actividad sexual:</strong> <%= @patient.try(:sexual_activity) %></span>
+    </div>
+
+    <h3 onclick="toggleDataGroup(event)">Consultas</h3>
+      <div class="field">
+        <span><strong>Registro de consultas:</strong> <%= @patient.try(:consult_record) %></span>
+        <%= form_with(model: @patient, local: true) do |form| %>
+          <div class="field">
+            <%= form.label :consult_record, "Nueva consulta:" %>
+            <%= form.text_field :consult_record %>
+          </div>
+    <div class="actions">
+      <%= form.submit "Actualizar" %>
+    </div>
+  <% end %>
+</div>
+
+    </div>
+</main>
+
+</body>
 </main>

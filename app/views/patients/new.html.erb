@@ -33,6 +33,7 @@
   </header>
 
   <main>
+    <h3>Datos filiales</h3>
     <%= form_with(model: @patient, local: true) do |form| %>
       <div class="field">
         <%= form.label :name, "Nombre:" %>
@@ -57,12 +58,28 @@
         <%= form.label :birth_date, "Fecha de nacimiento:" %>
         <%= form.date_select :birth_date %>
       </div>
-
+    <h3>Datos de contacto</h3>
       <div class="field">
         <%= form.label :address, "Dirección:" %>
         <%= form.text_area :address %>
       </div>
 
+      <div class="field">
+        <% form.label :phone, "Numero de telefono" %>
+        <% form.number_field :phone %>
+      </div>
+
+      
+    <h3>Composicion familiar</h3>
+
+      <div class="field">
+        <% form.label :house, "Vivienda" %>
+        <%= form.select :house, ["Casa", "Departamento", "Villa", "Calle"] %>
+
+      
+    <h3>Habitos</h3>
+    <h3>Antecedentes familiares</h3>
+    <h3>Antecedentes personales</h3>
       <div class="actions">
         <%= form.submit "Crear" %>
       </div>

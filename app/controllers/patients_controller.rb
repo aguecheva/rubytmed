@@ -19,9 +19,9 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(patient_params)
     if @patient.save
-      redirect_to @patient
+      redirect_to @patient, notice: 'Paciente añadido correctamente!'
     else
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end
 
@@ -50,7 +50,7 @@ class PatientsController < ApplicationController
 
    private
     def patient_params
-        params.require(:patient).permit(:name, :lastname, :dni)
+        params.require(:patient).permit(:name, :lastname, :dni, :birth_date, :consult_record)
     end
 
 end

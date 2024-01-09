@@ -32,7 +32,6 @@ class CreatePatients < ActiveRecord::Migration[7.1]
       t.string :substance_use , :null => true
       t.string :sexual_activity, :null => true
       
-
       #historial de consultorio/internaciones/etc... solo texto para registrar el motivo de consulta, enfermedad actual, diagnostico presuntivo y tratamiento aplicado o seguimiento del mismo
       t.string :consult_record, :null => true
 

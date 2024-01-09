@@ -2,11 +2,12 @@
 <html>
   <head>
     <title>Bitmed</title>
+       <h1>Bitmed</h1>
 
-      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -14,10 +15,19 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
-    <%= image_tag 'logo.jpg', class: 'logo', id: 'logo_first' %>  </head>
+  </head>
 
   <body>
+    
+     <!-- %= image_tag 'logo.jpg', class: 'logo', id: 'logo_first' %> -->
+
+    <header>
+      <div class="interior">
+        <a href="" class="logo"><img src="images/logo.png" alt=""></a>
+        <%= render 'shared/navegation' %>
+        <%= render 'shared/flash' %>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

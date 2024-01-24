@@ -1,0 +1,14 @@
+es:
+  common: 
+    confirm: 'Estas seguro?'
+  patients:
+    edit:
+      title: 'Editar Paciente'
+    indiex:
+      title: 'Pacientes'
+    show:
+      title: ''
+    new:
+      title: 'Añadir paciente'
+    create:
+      created: 'Paciente añadido exitosamente'

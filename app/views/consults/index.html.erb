@@ -1,0 +1,16 @@
+ <h3>Consultas</h3>
+<% @consults.each do |consult| %>
+  <p><%= consult.description %></p>
+<% end %>
+
+
+<%= form_with(model: [ @patient, Consult.new ]) do |form| %>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

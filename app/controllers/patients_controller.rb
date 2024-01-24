@@ -19,7 +19,7 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(patient_params)
     if @patient.save
-      redirect_to @patient, notice: 'Paciente añadido correctamente!'
+      redirect_to @patient, notice: t('.created')
     else
       render 'new', status: :unprocessable_entity
     end
@@ -27,6 +27,8 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
+    @consults = @patient.consults
+
   end
 
   def edit
@@ -36,21 +38,24 @@ class PatientsController < ApplicationController
   def update
     @patient = Patient.find(params[:id])
     if @patient.update(patient_params)
-      redirect_to @patient
+      redirect_to @patient, notice: 'Paciente actualizado correctamente!'
     else
-      render 'edit'
+      render 'edit', status: 422
     end
   end
 
   def destroy
     @patient = Patient.find(params[:id])
     @patient.destroy
-    redirect_to patients_path
+    redirect_to patients_path, notice: 'El paciente se ha eliminado correctamente.', status: :see_other
   end
 
    private
     def patient_params
-        params.require(:patient).permit(:name, :lastname, :dni, :birth_date, :consult_record)
+        params.require(:patient).permit(:name, :lastname, :dni, :birth_date, :consult_record, :photo)
     end
+
+  
+    
 
 end

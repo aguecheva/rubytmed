@@ -1,0 +1,32 @@
+<%= form_with(model: @user, url: authentication_users_path, local: true) do |form| %>
+  <%= @user.errors.full_messages.each do |error| %>
+    <div>
+      <%= error %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email, "Email:" %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :username, "Nombre de usuario:" %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password, "Contraseña:" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password, "Repetir Contraseña:" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>

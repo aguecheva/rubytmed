@@ -1,0 +1,24 @@
+<%= form_with(url: authentication_sessions_path) do |form| %>
+  <%= @user.errors.full_messages.each do |error| %>
+    <div>
+      <%= error %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :login %>
+    <%= form.email_field :login %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password, "Contraseña:" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+  <%= link_to 'Registrarse aqui!', new_authentication_user_path, class: 'new-user' %>
+
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_24_020610) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_06_204411) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -52,8 +52,33 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_020610) do
     t.string "lastname"
     t.integer "dni"
     t.date "birth_date"
+    t.integer "children"
+    t.string "partner"
+    t.string "parents"
+    t.string "siblings"
+    t.string "address"
+    t.string "phone"
+    t.text "family_history"
+    t.text "personal_history"
+    t.string "occupation"
+    t.string "diet"
+    t.string "exercise"
+    t.string "substance_use"
+    t.string "sexual_activity"
+    t.string "consult_record"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "username", null: false
+    t.string "password_digest", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

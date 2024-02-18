@@ -9,17 +9,20 @@ Rails.application.routes.draw do
   delete '/patients/:id', to: 'patients#destroy'
   get '/patients', to: 'patients#patients'
 
+
+  resources :patients do
+    resources :consults do
+
+
+    end
+  end
+
   namespace :authentication do
     resources :users, only: [:new, :create]
     resources :sessions, only: [:new, :create]
 
-  resources :patients do
-    resources :consults
+
   end
-end
-
-
-
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

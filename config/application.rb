@@ -25,8 +25,8 @@ module Bitmed
     # config.eager_load_paths << Rails.root.join("extras")
 
     #available languages
-      config.i18n.available_locales= [ :en, :es] 
-    #default language  
-      config.i18n.default_locale = :es 
+      config.i18n.available_locales= [ :en, :es]
+    #default language
+      config.i18n.default_locale = :es
   end
 end

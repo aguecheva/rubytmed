@@ -1,16 +1,27 @@
- <h3>Consultas</h3>
-<% @consults.each do |consult| %>
-  <p><%= consult.description %></p>
-<% end %>
+<h2>Consultas del Paciente <%= @patient.name %></h2>
 
+<table>
+  <thead>
+    <tr>
+      <th>Descripción</th>
+      <th>Fecha</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
 
-<%= form_with(model: [ @patient, Consult.new ]) do |form| %>
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+  <tbody>
+    <% @consults.each do |consult| %>
+      <tr>
+        <td><%= consult.description %></td>
+        <td><%= consult.created_at.to_date %></td>
+        <td>
+          <%= link_to 'Ver', [@patient, consult] %> |
+          <%= link_to 'Editar', edit_patient_consult_path(@patient, consult) %> |
+          <%= link_to 'Eliminar', [@patient, consult], method: :delete, data: { confirm: '¿Estás seguro?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= link_to 'Nueva Consulta', new_patient_consult_path(@patient) %>

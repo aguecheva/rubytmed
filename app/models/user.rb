@@ -1,5 +1,7 @@
+# En tu modelo de User
 class User < ApplicationRecord
     has_secure_password
+    validates :password, confirmation: true
 
     validates :email, presence: true, uniqueness: true,
         format: {

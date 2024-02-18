@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
-  
-  def patients    
+
+  def patients
 
     if params[:q]
       @patients = Patient.where("name LIKE ? OR lastname LIKE ? OR dni LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
@@ -50,12 +50,12 @@ class PatientsController < ApplicationController
     redirect_to patients_path, notice: 'El paciente se ha eliminado correctamente.', status: :see_other
   end
 
-   private
+  private
     def patient_params
         params.require(:patient).permit(:name, :lastname, :dni, :birth_date, :consult_record, :photo)
     end
 
-  
-    
+
+
 
 end

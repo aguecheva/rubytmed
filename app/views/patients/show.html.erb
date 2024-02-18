@@ -1,4 +1,4 @@
-<main>
+
 <body>
   <header>
     <h2>Mis pacientes</h2>
@@ -6,86 +6,72 @@
 
 <%= image_tag @patient.photo, width: 200  %>
 
-<main>
-  <h2><%= @patient.name + " " + @patient.lastname %></h2>
-    <div class="data-group-general">
-      <span><strong>DNI:</strong> <%= @patient.dni %></span>
-      <span><strong>Fecha de nacimiento: </strong> <%= @patient.birth_date %></span>
-    </div>
+  <main>
 
-    <h3 onclick="toggleDataGroup(event)">Datos de contacto</h3>
-    <div class="data-group-contact">
-      <span><strong>Dirección:</strong> <%= @patient.try(:address) %></span>
-      <span><strong>Teléfono:</strong> <%= @patient.try(:phone) %></span>
-    </div>
-<%
-=begin%>
- 
+    <h2><%= @patient.name + " " + @patient.lastname %></h2>
+      <div class="data-group-general">
+        <span><strong>DNI:</strong> <%= @patient.dni %></span>
+        <span><strong>Fecha de nacimiento: </strong> <%= @patient.birth_date %></span>
+      </div>
 
-    <h3 onclick="toggleDataGroup(event)">Historia</h3>
-    <div class="data-group-records">
-      <span><strong>Historia familiar:</strong> <%= @patient.try(:family_history) %></span>
-      <span><strong>Historia personal:</strong> <%= @patient.try(:personal_history) %></span>
-    </div>
+      <h3 onclick="toggleDataGroup(event)">Datos de contacto</h3>
+      <div class="data-group-contact">
+        <span><strong>Dirección:</strong> <%= @patient.try(:address) %></span>
+        <span><strong>Teléfono:</strong> <%= @patient.try(:phone) %></span>
+      </div>
+  
 
-    <h3 onclick="toggleDataGroup(event)">Composicion familiar</h3>
-    <div class="data-group-family">
-      <span><strong>Número de hijos:</strong> <%= @patient.try(:children) %></span>
-      <span><strong>Pareja:</strong> <%= @patient.try(:partner) %></span>
-      <span><strong>Padres:</strong> <%= @patient.try(:parents) %></span>
-      <span><strong>Hermanos:</strong> <%= @patient.try(:siblings) %></span>
-    </div>
+      <h3 onclick="toggleDataGroup(event)">Historia</h3>
+      <div class="data-group-records">
+        <span><strong>Historia familiar:</strong> <%= @patient.try(:family_history) %></span>
+        <span><strong>Historia personal:</strong> <%= @patient.try(:personal_history) %></span>
+      </div>
 
-    <h3 onclick="toggleDataGroup(event)">Datos laborales</h3>
-    <div class="data-group-job">
-      <span><strong>Ocupación:</strong> <%= @patient.try(:occupation) %></span>
-    </div>
+      <h3 onclick="toggleDataGroup(event)">Composicion familiar</h3>
+      <div class="data-group-family">
+        <span><strong>Número de hijos:</strong> <%= @patient.try(:children) %></span>
+        <span><strong>Pareja:</strong> <%= @patient.try(:partner) %></span>
+        <span><strong>Padres:</strong> <%= @patient.try(:parents) %></span>
+        <span><strong>Hermanos:</strong> <%= @patient.try(:siblings) %></span>
+      </div>
 
-    <h3 onclick="toggleDataGroup(event)">Habitos</h3>
-    <div class="data-group-habits">
-      <span><strong>Dieta:</strong> <%= @patient.try(:diet) %></span>
-      <span><strong>Ejercicio:</strong> <%= @patient.try(:exercise) %></span>
-      <span><strong>Uso de sustancias:</strong> <%= @patient.try(:substance_use) %></span>
-      <span><strong>Actividad sexual:</strong> <%= @patient.try(:sexual_activity) %></span>
-    </div> 
-<%
-=end%>
+      <h3 onclick="toggleDataGroup(event)">Datos laborales</h3>
+      <div class="data-group-job">
+        <span><strong>Ocupación:</strong> <%= @patient.try(:occupation) %></span>
+      </div>
 
-    <h3 onclick="toggleDataGroup(event)">Consultas</h3>
-      <div class="consult-field">
-        <span><strong>Registro de consultas:</strong> <%= @patient.try(:consult_record) %></span>
-        <%= form_with(model: @patient, local: true) do |form| %>
-          <div class="consult-field">
-            <%= form.label :consult_record, "Nueva consulta:" %>
-            <%= form.text_field :consult_record %>
-          </div>
-          
-    <%= link_to 'Ver consultas', patient_consults_path(@patient) %>
+      <h3 onclick="toggleDataGroup(event)">Habitos</h3>
+      <div class="data-group-habits">
+        <span><strong>Dieta:</strong> <%= @patient.try(:diet) %></span>
+        <span><strong>Ejercicio:</strong> <%= @patient.try(:exercise) %></span>
+        <span><strong>Uso de sustancias:</strong> <%= @patient.try(:substance_use) %></span>
+        <span><strong>Actividad sexual:</strong> <%= @patient.try(:sexual_activity) %></span>
+      </div> 
+
+      <h3 onclick="toggleDataGroup(event)">Consultas</h3>
+        
+            
 
 
-    
-
-    <div class="actions">
-      <%= form.submit "Actualizar", class: "btn btn-primary" %>
-    </div>
-      <p>
-    <li><%= link_to "Editar paciente", edit_path(@patient), class: "btn btn-primary" %></li>
-      <p>
-    <li><%= link_to "Eliminar paciente", patients_path(@patient), class: "btn btn-danger", data: {
-            turbo_method: :delete,
-            turbo_confirm: "¿Esta seguro de querer eliminar este paciente?"
-            } %></li>
-
-      <p>
-    <% end %>
-
-   
-
-</div>
-
-    </div>
-</main>
+<%= link_to 'Ver Consultas', patient_consults_path(@patient) %>
 
 
+
+      
+
+      <%= form_with(model: @patient, local: true) do |form| %>
+        <div class="actions">
+          <%= form.submit "Actualizar", class: "btn btn-primary" %>
+        </div>
+        <p>
+        <li><%= link_to "Editar paciente", edit_path(@patient), class: "btn btn-primary" %></li>
+        <p>
+        <li><%= link_to "Eliminar paciente", patients_path(@patient), class: "btn btn-danger", data: {
+                turbo_method: :delete,
+                turbo_confirm: "¿Esta seguro de querer eliminar este paciente?"
+                } %></li>
+      <% end %>    
+  </main>
 </body>
-</main>
+
+

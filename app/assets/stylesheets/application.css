@@ -71,6 +71,15 @@ main {
 
 }
 
+h2 {  
+  color: var(--color-text)
+}
+
+table {
+  color: var(--color-text-on);
+  text-shadow: 2px 2px 4px var(--color-text-shadow);
+  
+}
 
 /* Estilos de la barra de navegación */
 .navegation {

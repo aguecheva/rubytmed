@@ -4,7 +4,7 @@ es:
   patients:
     edit:
       title: 'Editar Paciente'
-    indiex:
+    index:
       title: 'Pacientes'
     show:
       title: ''
@@ -12,3 +12,9 @@ es:
       title: 'Añadir paciente'
     create:
       created: 'Paciente añadido exitosamente'
+  date:
+    order: 
+      - :day
+      - :month
+      - :year
+  

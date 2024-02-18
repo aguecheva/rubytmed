@@ -1,0 +1,14 @@
+<h2>Consulta del Paciente <%= @consult.patient.name %></h2>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @consult.description %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @consult.created_at.to_date %>
+</p>
+
+<%= link_to 'Editar', edit_patient_consult_path(@consult.patient, @consult) %> |
+<%= link_to 'Volver', patient_consults_path(@consult.patient) %>

@@ -8,9 +8,9 @@ Objetivos:
 Tareas pendientes:
 
     Alta prioridad: 
-
-    - Crear login funcional
-    - Que ese login redirija a las paginas con vistas y sus funciones solo para usuarios
+    
+    - Que login redirija a las paginas con vistas y sus funciones solo para usuarios (parcialmente realizado, faltaria que mantenga el logeo del usuario)
+    - Corregir boton eliminar pacientes, y eliminar consultas 
     
     Prioridad intermedia:
 

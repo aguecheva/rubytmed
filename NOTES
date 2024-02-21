@@ -1,0 +1,38 @@
+Objetivos:
+    PRIMARIOS
+        
+         Sitio web para administracion de pacientes y sus datos para analizar.
+
+    SECUNDARIOS
+
+Tareas pendientes:
+
+    Alta prioridad: 
+
+    - Crear login funcional
+    - Que ese login redirija a las paginas con vistas y sus funciones solo para usuarios
+    
+    Prioridad intermedia:
+
+    - Acomodar barras de navegacion y laterales, acomodar layout
+    
+    Baja prioridad:
+
+    - Crear instancias de paciente (cada una con caracteristicas y funcionalidades diferentes ej: añadir control de signos vitales por enfermeria)
+        Paciente internado
+            En guardia
+            En sala
+            En UTI
+            otros...
+    
+    - Crear tipos de usuario con funciones difrentes (medico, enfermero, kine, fono, TO, adnimistrativos, etc)
+
+Errores:
+    Al hacer login tira error de usuario y pw incorrecta, siendo correctas
+    Boton eliminar paciente y consultas no funciona
+
+Ideas futuras:
+    - Barra lateral izquierda de "niveles" (paciente, salas, hospital, etc)
+    - Barra lateral derecha de "datos" rapidos para cada "nivel" de trabajo (paciente, sala, hospital, etc)
+    - Añadir niveles extra por fuera de los hospitales (analisis locales/ epidemiologicos)
+    - Crear funciones de analisis de datos en multiples niveles y relaciones

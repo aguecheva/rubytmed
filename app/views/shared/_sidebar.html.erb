@@ -1,0 +1,42 @@
+<nav class="sidebar">
+    <ul>
+        <li><%= link_to 'Inicio', root_path %></li>
+
+        
+        <li><%= link_to 'Buscar Pacientes', patients_path %></li>
+
+        <li>
+            <a href="#">Mis Pacientes</a>
+            <ul>
+                <% @patients.each do |patient| %>
+                    <li><%= link_to patient.name, patients_path(patient) %></li>
+                <% end %>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Salas</a>
+            <ul>
+                <%
+=begin%>
+ <% @salas.each do |sala| %>
+                    <li><%= link_to sala.nombre, sala_path(sala) %></li>
+                <% end %> 
+<%
+=end%>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Hospital</a>
+            <ul>
+                <%
+=begin%>
+ <% @hospitales.each do |hospital| %>
+                    <li><%= link_to hospital.nombre, hospital_path(hospital) %></li>
+                <% end %> 
+<%
+=end%>
+            </ul>
+        </li>
+        <li><%= link_to 'Log in', new_authentication_session_path %></li>
+    </ul>
+</nav>

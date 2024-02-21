@@ -11,4 +11,15 @@
 </p>
 
 <%= link_to 'Editar', edit_patient_consult_path(@consult.patient, @consult) %> |
+
+<%= link_to 'Eliminar', patient_consult_path(@consult.patient, @consult), method: :delete, data: { confirm: '¿Estás seguro?' } %>
+
+<%
+=begin%>
+ <%= link_to 'Eliminar', destroy_patient_consult_path(@consult.patient), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+} %> | 
+<%
+=end%>
 <%= link_to 'Volver', patient_consults_path(@consult.patient) %>

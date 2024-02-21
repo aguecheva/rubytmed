@@ -42,8 +42,9 @@ class ConsultsController < ApplicationController
 
   # DELETE /patients/:patient_id/consults/:id
   def destroy
+    @consult = @patient.consults.find(params[:id])
     @consult.destroy
-    redirect_to patient_consults_url(@patient), notice: 'Consulta eliminada con éxito.'
+    redirect_to patient_consults_path(@patient), notice: 'Consulta eliminada con éxito.'
   end
 
   private

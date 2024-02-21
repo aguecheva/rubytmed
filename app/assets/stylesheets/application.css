@@ -158,6 +158,75 @@ table {
 
 }
 
+/* Estilos de la barra lateral */
+.sidebar {
+  display: flex;
+  color: var(--color-text-off);
+  text-shadow: var(--color-text-shadow);
+  justify-content: flex-start; 
+  border-radius: 5px;
+  position: fixed;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  overflow: auto;
+  background-color: black; 
+}
+
+.sidebar ul li {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.sidebar ul li a {
+  font-family: 'Roboto', sans-serif;
+  color: var(--color-quaternary);
+  text-shadow: 2px 2px 4px var(--color-quaternary);
+  border-radius: 5px;
+}
+
+.sidebar ul li ul {
+  display: none;
+  position: absolute;
+  background-color: none;
+}
+
+.sidebar ul li:hover {
+  animation: glowing 2s infinite;
+}
+
+.sidebar ul li:hover ul {
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  color: #fff;
+  text-shadow: 0 0 2px var(--color-text-shadow), 0 0 5px var(--color-text-shadow), 0 0 10px var(--color-text-shadow), 0 0 15px var(--color-text-shadow);
+}
+
+.sidebar ul li ul li {
+  color: var(--color-quaternary);
+  text-shadow: 2px 2px 4px var(--color-primary);
+  display: block;
+  transition: background-color 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  color: var(--color-quaternary);
+  text-shadow: 2px 2px 4px var(--color-primary);
+}
+
+.sidebar ul li ul li:hover {
+  background-color: var(--color-accent);
+  color: var(--color-quaternary);
+  text-shadow: 0 0 2px var(--color-quaternary), 0 0 5px var(--color-quaternary), 0 0 10px var(--color-quaternary), 0 0 15px var(--color-quaternary);
+  animation: glowing 2s infinite;
+}
+
+
+
+
+
 .alert {
   color: var(--color-text-on);
   text-transform: uppercase;

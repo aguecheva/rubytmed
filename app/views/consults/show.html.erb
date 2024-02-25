@@ -10,16 +10,18 @@
   <%= @consult.created_at.to_date %>
 </p>
 
-<%= link_to 'Editar', edit_patient_consult_path(@consult.patient, @consult) %> |
+<%= form_with(model: [@consult.patient, @consult], local: true) do |form| %>
+  <div class="actions">
+    <%= form.submit "Actualizar", class: "btn btn-primary" %>
+  </div>
+<% end %>
 
-<%= link_to 'Eliminar', patient_consult_path(@consult.patient, @consult), method: :delete, data: { confirm: '¿Estás seguro?' } %>
+<p>
+  <%= link_to "Editar paciente", edit_patient_consult_path(@consult.patient, @consult), class: "btn btn-primary" %>
+</p>
 
-<%
-=begin%>
- <%= link_to 'Eliminar', destroy_patient_consult_path(@consult.patient), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-} %> | 
-<%
-=end%>
+<%= form_with(model: [@consult.patient, @consult], method: :delete, local: true, data: { controller: 'destroy', action: 'click->destroy#delete' }) do |form| %>
+  <%= form.button 'Eliminar', class: 'btn btn-danger', data: { delete_url: patient_consult_path(@consult.patient, @consult) } %>
+<% end %>
+
 <%= link_to 'Volver', patient_consults_path(@consult.patient) %>

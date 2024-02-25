@@ -15,9 +15,13 @@
         <td><%= consult.description %></td>
         <td><%= consult.created_at.to_date %></td>
         <td>
-          <%= link_to 'Ver', [@patient, consult] %> |
-          <%= link_to 'Editar', edit_patient_consult_path(@patient, consult) %> |
-          <%= link_to 'Eliminar', [@patient, consult], method: :destroy, data: { confirm: '¿Estás seguro?' } %>
+          <%= link_to 'Ver', patient_consult_path(@patient, consult) %> 
+          <%
+=begin%>
+ <%= link_to 'Editar', edit_patient_consult_path(@patient, consult) %> |
+          <%= link_to 'Eliminar', [@patient, consult], method: :destroy, data: { confirm: '¿Estás seguro?' } %> 
+<%
+=end%>
         </td>
       </tr>
     <% end %>

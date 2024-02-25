@@ -9,6 +9,8 @@ class ConsultsController < ApplicationController
 
   # GET /patients/:patient_id/consults/:id
   def show
+    @consult = Consult.find(params[:id])
+
   end
 
   # GET /patients/:patient_id/consults/new
@@ -42,9 +44,10 @@ class ConsultsController < ApplicationController
 
   # DELETE /patients/:patient_id/consults/:id
   def destroy
-    @consult = @patient.consults.find(params[:id])
     @consult.destroy
-    redirect_to patient_consults_path(@patient), notice: 'Consulta eliminada con éxito.'
+    redirect_to patient_consults_path(@patient), notice: 'Consulta eliminada correctamente.'
+  rescue ActiveRecord::InvalidForeignKey
+    redirect_to patient_consults_path(@patient), alert: 'No se pudo eliminar la consulta debido a restricciones de clave externa.'
   end
 
   private

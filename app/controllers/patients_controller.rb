@@ -46,16 +46,26 @@ class PatientsController < ApplicationController
 
   def destroy
     @patient = Patient.find(params[:id])
-    @patient.destroy
-    redirect_to patients_path, notice: 'El paciente se ha eliminado correctamente.', status: :see_other
+    ActiveRecord::Base.transaction do
+      # Elimina registros relacionados (por ejemplo, consultas)
+      @patient.consults.destroy_all
+      # Luego elimina al paciente
+      @patient.destroy
+    end
+    redirect_to patients_path, notice: 'Paciente eliminado correctamente.'
+  rescue ActiveRecord::InvalidForeignKey
+    redirect_to patients_path, alert: 'No se pudo eliminar el paciente debido a restricciones de clave externa.'
   end
+
+  # def destroy
+  #   @patient = Patient.find(params[:id])
+  #   @patient.destroy
+  #   redirect_to patients_path, notice: 'El paciente se ha eliminado correctamente.', status: :see_other
+  # end
 
   private
     def patient_params
         params.require(:patient).permit(:name, :lastname, :dni, :birth_date, :consult_record, :photo)
     end
-
-
-
 
 end

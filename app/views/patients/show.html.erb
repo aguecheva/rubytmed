@@ -19,7 +19,7 @@
         <span><strong>Dirección:</strong> <%= @patient.try(:address) %></span>
         <span><strong>Teléfono:</strong> <%= @patient.try(:phone) %></span>
       </div>
-  
+
 
       <h3 onclick="toggleDataGroup(event)">Historia</h3>
       <div class="data-group-records">
@@ -46,31 +46,40 @@
         <span><strong>Ejercicio:</strong> <%= @patient.try(:exercise) %></span>
         <span><strong>Uso de sustancias:</strong> <%= @patient.try(:substance_use) %></span>
         <span><strong>Actividad sexual:</strong> <%= @patient.try(:sexual_activity) %></span>
-      </div> 
+      </div>
 
       <h3 onclick="toggleDataGroup(event)">Consultas</h3>
-        
-            
+
+
 
 
 <%= link_to 'Ver Consultas', patient_consults_path(@patient) %>
 
 
 
-      
+
 
       <%= form_with(model: @patient, local: true) do |form| %>
-        <div class="actions">
-          <%= form.submit "Actualizar", class: "btn btn-primary" %>
-        </div>
+        
         <p>
-        <li><%= link_to "Editar paciente", edit_path(@patient), class: "btn btn-primary" %></li>
+        <%= link_to "Editar paciente", edit_path(@patient), class: "btn btn-primary" %>
         <p>
-        <li><%= link_to "Eliminar paciente", patients_path(@patient), class: "btn btn-danger", data: {
+
+      
+      <%= form_with(model: @patient, method: :delete, local: true, data: { controller: 'destroy', action: 'click->destroy#delete' }) do |form| %>
+      <%= form.button 'Eliminar', class: 'btn btn-danger', data: { delete_url: patient_path(@patient) } %>
+      <% end %>
+
+
+        <%
+=begin%>
+ <li><%= link_to "Eliminar paciente", patients_path(@patient), class: "btn btn-danger", data: {
                 turbo_method: :delete,
                 turbo_confirm: "¿Esta seguro de querer eliminar este paciente?"
-                } %></li>
-      <% end %>    
+                } %></li> 
+<%
+=end%>
+      <% end %>
   </main>
 </body>
 

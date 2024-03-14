@@ -1,6 +1,7 @@
 class PatientsController < ApplicationController
 
 
+
   def patients
 
     if params[:q]

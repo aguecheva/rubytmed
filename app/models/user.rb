@@ -1,5 +1,6 @@
 # En tu modelo de User
 class User < ApplicationRecord
+    
     has_secure_password
     validates :password, confirmation: true
 

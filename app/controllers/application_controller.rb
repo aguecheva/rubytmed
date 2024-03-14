@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-    around_action :switch_locale
-    before_action :set_current_user
-    before_action :protect_pages
+
+
 
     def switch_locale(&action)
       I18n.with_locale(locale_from_header, &action)

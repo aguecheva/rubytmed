@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'home#index'
 
   get 'home/show', to: 'home#show', as: 'home_show'
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
   delete '/patients/:id', to: 'patients#destroy'
   get '/patients', to: 'patients#patients'
 
+  devise_for :users
 
 
 
@@ -22,13 +22,11 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :authentication do
-    resources :users, only: [:new, :create]
-    resources :sessions, only: [:new, :create]
 
 
-  
-  end
+
+
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

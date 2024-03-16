@@ -1,4 +1,6 @@
 class ConsultsController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_patient
   before_action :set_consult, only: [:show, :edit, :update, :destroy]
 

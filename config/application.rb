@@ -27,6 +27,6 @@ module Bitmed
     #available languages
       config.i18n.available_locales= [ :en, :es]
     #default language
-      config.i18n.default_locale = :es
+      config.i18n.default_locale = :en
   end
 end

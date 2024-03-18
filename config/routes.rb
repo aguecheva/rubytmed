@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   delete '/patients/:id', to: 'patients#destroy'
   get '/patients', to: 'patients#patients'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
 
-
+  resources :users
 
   resources :patients do
     resources :consults do

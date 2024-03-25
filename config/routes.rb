@@ -9,13 +9,11 @@ Rails.application.routes.draw do
   get '/patients/:id/edit', to: 'patients#edit', as: 'edit'
   patch '/patients/:id', to: 'patients#update'
   delete '/patients/:id', to: 'patients#destroy'
-  get '/patients', to: 'patients#patients'
+  get '/patients', to: 'patients#index'
 
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
-  }
 
-  resources :users
+
+  devise_for :users
 
   resources :patients do
     resources :consults do

@@ -2,7 +2,7 @@ class PatientsController < ApplicationController
 
   before_action :authenticate_user!
 
-  def patients
+  def index
 
     if params[:q]
       @patients = Patient.where("name LIKE ? OR lastname LIKE ? OR dni LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
@@ -10,7 +10,7 @@ class PatientsController < ApplicationController
       @patients = Patient.all
     end
 
-    render template: 'patients/patients'
+
 
   end
 

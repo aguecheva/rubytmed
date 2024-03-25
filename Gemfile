@@ -70,4 +70,4 @@ gem 'jquery-rails', '~> 4.4'
 
 gem 'devise'
 
-
+gem 'byebug'

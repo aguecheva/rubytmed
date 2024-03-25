@@ -3,7 +3,15 @@
         <li><a href="/">Inicio</a></li>
         <li><a href="Quienes somos">Quienes somos</a></li>
         <li><a href="Contacto">Contacto</a></li>
+        <% if current_user.nil? %>
         <li><%= link_to 'Login', new_user_registration_path %></li>
+        <% else %>
+        <li><%= button_to destroy_user_session_path, method: :delete do %>
+        <span>Log out</span>
+        <% end %>
+        </li>
+        <% end %>
+
 
     </ul>
 </nav>

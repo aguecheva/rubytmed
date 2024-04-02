@@ -1,13 +1,23 @@
 
 
 :root {
-  --color-background: #95eaff;
-  --color-primary: #ffffff;
-  --color-secondary: rgb(255, 255, 255);
-  --color-text-off: #00c6fd;
-  --color-text-on: #fff;
-  --color-text: #f9f9f9ac;
-  --color-text-shadow: #03bcf4;
+color-scheme: light dark;
+
+  --color-background: #b7ab9f;
+  --color-primary: #abaaaa;
+  --color-secondary: rgb(22, 18, 18);
+  --color-text-off: #344449;
+  --color-text-on: #412f2f;
+  --color-text: #5d4949ac;
+  --color-text-shadow: #000b0f;
+  --color-background-dark: #28262d; /* Inverso de #b7ab9f */
+  --color-primary-dark: #9d9d9d; /* Inverso de #abaaaa */
+  --color-secondary-dark: #e9e7e7; /* Inverso de rgb(22, 18, 18) */
+  --color-text-off-dark: #cbbbb6; /* Inverso de #344449 */
+  --color-text-on-dark: #bed0d0; /* Inverso de #412f2f */
+  --color-text-dark: #a2b6b6; /* Inverso de #5d4949ac */
+  --color-text-shadow-dark: #fff4f0; /* Inverso de #000b0f */
+
 }
 
 * {
@@ -25,6 +35,32 @@ body {
   align-items: center;
   min-height: 100vh;
   background: var(--color-background);
+  transition: all 1.5s ease;
+
+}
+
+.dark{
+  background-color: var(--color-background-dark);
+  color: var(--color-text-dark);
+  transition: all 1.5s ease;
+}
+
+#toggle {
+  position: absolute ;
+  top: 25px;
+  right: 40px;
+  font-size: 2em;
+  color: var(--color-text);
+  display: none; 
+}
+
+#label_toggle {
+  position: absolute ;
+  top: 10px;
+  right: 10px;
+  font-size: 2em;
+  color: var(--color-text);
+
 
 }
 
@@ -140,11 +176,150 @@ table {
 
 
 .navegation ul li ul li:hover {
-  background-color: var(--color-accent);
+  background-color: var(--color-accent); 
   color: var(--color-quaternary);
   text-shadow: 0 0 2px var(--color-quaternary), 0 0 5px var(--color-quaternary), 0 0 10px var(--color-quaternary), 0 0 15px var(--color-quaternary);
   animation: glowing 2s infinite;
 }
+
+.init a {
+  display: inline-block;
+  width: 200px; 
+  height: 400px; 
+  background-image: url("reception.jpg");
+  background-position: center; 
+  background-size: cover;
+  opacity: 0.3;  
+  transition: 1.5s;
+}
+
+.init a:hover {
+  opacity: 1;
+  
+}
+
+.dark .init a {
+  background-image: url("reception-dark.jpg");
+  transition: 1.5s ;
+}
+.who-we a {
+  display: inline-block;
+  width: 200px; 
+  height: 400px; 
+  background-image: url("who-we.jpg");
+  background-position: center; 
+  background-size: cover;
+  opacity: 0.3;  
+  transition: 1.5s ;
+}
+
+.who-we a:hover {
+  opacity: 1;
+}
+
+.dark .who-we a {
+  background-image: url("who-we-dark.jpg");
+  transition: 1.5s ;
+}
+
+.contact a {
+  display: inline-block;
+  width: 200px; 
+  height: 400px; 
+  background-image: url("contact.jpg");
+  background-position: center; 
+  background-size: cover;
+  opacity: 0.3;  
+  transition: 1.5s ;
+}
+
+.contact a:hover {
+  opacity: 1;
+}
+
+.dark .contact a {
+  background-image: url("contact-dark.jpg");
+  transition: 1.5s ;
+}
+
+.login a {
+  display: inline-block;
+  width: 200px; 
+  height: 400px; 
+  background-image: url("register.jpg");
+  background-position: center; 
+  background-size: cover;
+  opacity: 0.3;  
+  transition: 1.5s ;
+}
+
+.login a:hover {
+  opacity: 1;
+}
+
+.dark .login a {
+  background-image: url("register-dark.jpg");
+  transition: 1.5s ;
+}
+
+.logout a {
+  display: inline-block;
+  width: 200px; 
+  height: 400px; 
+  background-image: url("reception.jpg");
+  background-position: center; 
+  background-size: cover;
+  opacity: 0.3;  
+  transition: 1.5s ;
+}
+
+.logout a:hover {
+  opacity: 1;
+}
+
+
+/* Estilos de la barra de navegación */
+/*.navegation {
+  display: flex;
+  justify-content: center; 
+  border-radius: 5px;
+}
+
+.navegation ul li {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.navegation ul li a {
+  display: inline-block;
+  width: 100px; 
+  height: 100px; 
+  background-image: url('app/assets/images/consultorio-light.jpg');
+  opacity: 0.5; 
+}
+
+.navegation ul li a:hover {
+  opacity: 1; 
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .notice {
   color: var(--color-text-on);

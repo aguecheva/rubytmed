@@ -1,17 +1,19 @@
+
 <nav class="navegation">
     <ul>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="Quienes somos">Quienes somos</a></li>
-        <li><a href="Contacto">Contacto</a></li>
+        <li class="init"><a href="/">Inicio</a></li>
+        <li class="who-we"><a href="Quienes somos">Quienes somos</a></li>
+        <li class="contact"><a href="Contacto">Contacto</a></li>
         <% if current_user.nil? %>
-        <li><%= link_to 'Login', new_user_registration_path %></li>
+        <li class="login"><%= link_to 'Login', new_user_registration_path %></li>
         <% else %>
-        <li><%= button_to destroy_user_session_path, method: :delete do %>
+        <li class="logout"><%= button_to destroy_user_session_path, method: :delete do %>
         <span>Log out</span>
         <% end %>
         </li>
         <% end %>
-
-
     </ul>
+
+    
 </nav>
+

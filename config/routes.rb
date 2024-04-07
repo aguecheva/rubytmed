@@ -15,18 +15,16 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :patients do
-    resources :consults do
-
-
-    end
+  namespace :api do
+    resources :patients, defaults: {
+      format: :json
+    }
   end
 
+  resources :patients do
+    resources :consults
 
-
-
-
-
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

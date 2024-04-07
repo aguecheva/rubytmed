@@ -10,13 +10,13 @@ color-scheme: light dark;
   --color-text-on: #412f2f;
   --color-text: #5d4949ac;
   --color-text-shadow: #000b0f;
-  --color-background-dark: #28262d; /* Inverso de #b7ab9f */
-  --color-primary-dark: #9d9d9d; /* Inverso de #abaaaa */
-  --color-secondary-dark: #e9e7e7; /* Inverso de rgb(22, 18, 18) */
-  --color-text-off-dark: #cbbbb6; /* Inverso de #344449 */
-  --color-text-on-dark: #bed0d0; /* Inverso de #412f2f */
-  --color-text-dark: #a2b6b6; /* Inverso de #5d4949ac */
-  --color-text-shadow-dark: #fff4f0; /* Inverso de #000b0f */
+
+  --color-background-dark: #28262d; 
+  --color-secondary-dark: #e9e7e7; 
+  --color-text-off-dark: #cbbbb6; 
+  --color-text-on-dark: #bed0d0; 
+  --color-text-dark: #a2b6b6; 
+  --color-text-shadow-dark: #fff4f0;
 
 }
 
@@ -52,6 +52,7 @@ body {
   font-size: 2em;
   color: var(--color-text);
   display: none; 
+ 
 }
 
 #label_toggle {
@@ -60,7 +61,8 @@ body {
   right: 10px;
   font-size: 2em;
   color: var(--color-text);
-
+  text-shadow:0 0 10px #b1a47b,
+  0 0 20px #eba2a2;
 
 }
 
@@ -75,10 +77,14 @@ h1 {
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
   line-height: 0.70em;
   outline: none;
+  
+
+
+}
+
+.dark h1 {
   animation: animate 6s ;
   animation-fill-mode: forwards;
-
-
 }
 
 @keyframes animate {0%, 18%, 20%, 50.1%, 60%, 65%, 80.1%, 90.1%, 92%
@@ -87,12 +93,12 @@ h1 {
    box-shadow: none;
  }
  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
-   color: #fff;
-   text-shadow: 0 0 10px #03bcf4,
-   0 0 20px #03bcf4,
-   0 0 40px #03bcf4,
-   0 0 80px #03bcf4,
-   0 0 160px #03bcf4;
+   color: #ffffff;
+   text-shadow: 0 0 10px #b1a47b,
+   0 0 20px #eba2a2,
+   0 0 40px #eba2a2,
+   0 0 80px #eba2a2,
+   0 0 160px #eba2a2;
  }
 }
 
@@ -195,6 +201,8 @@ table {
 
 .init a:hover {
   opacity: 1;
+  width: 210px;
+  height: 410px;
   
 }
 
@@ -202,6 +210,18 @@ table {
   background-image: url("reception-dark.jpg");
   transition: 1.5s ;
 }
+
+.dark .init a:hover {
+  width: 210px;
+  height: 410px;
+  box-shadow:0 0 10px #b1a47b,
+  0 0 20px #eba2a2;
+ 
+}
+  
+
+
+
 .who-we a {
   display: inline-block;
   width: 200px; 
@@ -215,11 +235,20 @@ table {
 
 .who-we a:hover {
   opacity: 1;
+  width: 210px;
+  height: 410px;
 }
 
 .dark .who-we a {
   background-image: url("who-we-dark.jpg");
   transition: 1.5s ;
+}
+
+.dark .who-we a:hover {
+  width: 210px;
+  height: 410px;
+  box-shadow:0 0 10px #b1a47b,
+  0 0 20px #eba2a2;
 }
 
 .contact a {
@@ -235,11 +264,21 @@ table {
 
 .contact a:hover {
   opacity: 1;
+  width: 210px;
+  height: 410px;
 }
 
 .dark .contact a {
   background-image: url("contact-dark.jpg");
   transition: 1.5s ;
+}
+
+.dark .contact a:hover {
+
+  width: 210px;
+  height: 410px;
+  box-shadow:0 0 10px #b1a47b,
+  0 0 20px #eba2a2;
 }
 
 .login a {
@@ -255,6 +294,8 @@ table {
 
 .login a:hover {
   opacity: 1;
+  width: 210px;
+  height: 410px;
 }
 
 .dark .login a {
@@ -262,11 +303,18 @@ table {
   transition: 1.5s ;
 }
 
+.dark .login a:hover {
+  width: 210px;
+    height: 410px;
+    box-shadow:0 0 10px #b1a47b,
+    0 0 20px #eba2a2;
+}
+
 .logout a {
   display: inline-block;
   width: 200px; 
   height: 400px; 
-  background-image: url("reception.jpg");
+  background-image: url("logout.jpg");
   background-position: center; 
   background-size: cover;
   opacity: 0.3;  
@@ -275,6 +323,26 @@ table {
 
 .logout a:hover {
   opacity: 1;
+  width: 210px;
+  height: 410px;
+}
+.dark .logout a {
+  display: inline-block;
+  width: 200px; 
+  height: 400px; 
+  background-image: url("logout-dark.jpg");
+  background-position: center; 
+  background-size: cover;
+  opacity: 0.3;  
+  transition: 1.5s ;
+}
+
+.dark .logout a:hover {
+  opacity: 1;
+  width: 210px;
+  height: 410px;
+  box-shadow:0 0 10px #b1a47b,
+  0 0 20px #eba2a2;
 }
 
 

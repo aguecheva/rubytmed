@@ -64,3 +64,9 @@ exports.createPatient = async function createPatient(name, lastname, dni, birthD
     return null;
   }
 };
+
+exports.Patients = {
+  get: exports.getPatient,
+  list: exports.getPatients,
+}
+

@@ -16,23 +16,17 @@ devise :database_authenticatable, :registerable,
         with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ ,
         message: 'email invalido'
     }
-    # validates :username, presence: true, uniqueness: true,
-    #     length: { in: 3..15 },
-    #     format: {
-    #         with: /\A[a-z-0-9-A-Z]+\z/ ,
-    #         message: 'Nombre de usuario invalido'
-    #     }
-    #     validates :password, length: {minimum:6, maximum:24}
 
+    class Doctor < User
 
-        # SIGUIENTE CODIGO COMENTADO PARA QUE SE GUARDE EN MINUSCULA TANTO USUARIO COMO CONTRASEÑA
-        # before_save: downcase_attributes
+    end
 
+    class Nurse < User
 
-        # private
+    end
 
-        # def downcase_attributes
-        #     self.username = username.downcase
-        #     self.email = email.downcase
-        # end
+    class Admin < User
+
+    end
+    
 end

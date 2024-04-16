@@ -7,13 +7,15 @@
 <body>
 
  <header>
-  
+
   <header>
+  <%= render 'shared/sidebar' %>
+
     <h2>Crear nuevo paciente</h2>
   </header>
 
   <main>
-  
+
     <h3>Datos filiales</h3>
     <%= form_with(model: @patient, local: true) do |form| %>
       <%= @patient.errors.full_messages.each do |error| %>
@@ -45,7 +47,7 @@
         <%= form.label :birth_date, "Fecha de nacimiento:" %>
         <%= form.date_select :birth_date %>
       </div>
-      
+
     <h3>Datos de contacto</h3>
       <div class="field">
         <%= form.label :address, "Dirección:" %>
@@ -63,14 +65,14 @@
       </div>
 
 
-      
+
     <h3>Composicion familiar</h3>
 
       <div class="field">
         <% form.label :house, "Vivienda" %>
         <%= form.select :house, ["Casa", "Departamento", "Villa", "Calle"] %>
 
-      
+
     <h3>Habitos</h3>
     <h3>Antecedentes familiares</h3>
     <h3>Antecedentes personales</h3>

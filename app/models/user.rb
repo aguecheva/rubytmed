@@ -1,6 +1,6 @@
 # En tu modelo de User
 class User < ApplicationRecord
-
+  has_many :patients
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -19,6 +19,7 @@ devise :database_authenticatable, :registerable,
 
     class Doctor < User
 
+
     end
 
     class Nurse < User
@@ -28,5 +29,5 @@ devise :database_authenticatable, :registerable,
     class Admin < User
 
     end
-    
+
 end

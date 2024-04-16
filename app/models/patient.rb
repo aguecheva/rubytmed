@@ -1,5 +1,5 @@
 class Patient < ApplicationRecord
-
+#    belongs_to :User
     has_many :consults
     has_one_attached :photo
 
@@ -10,10 +10,10 @@ class Patient < ApplicationRecord
 
 end
 
-class Inpatient < Patient
-    belongs_to :bed
-    has_many :notes
+# class Inpatient < Patient
+#     belongs_to :bed
+#     has_many :notes
 
-    validates :admission_date, presence: true
+#     validates :admission_date, presence: true
 
-end
+# end

@@ -1,6 +1,8 @@
 
 <body>
   <header>
+  <%= render 'shared/sidebar' %>
+
     <h2>Mis pacientes</h2>
   </header>
 
@@ -60,12 +62,12 @@
 
 
       <%= form_with(model: @patient, local: true) do |form| %>
-        
+
         <p>
         <%= link_to "Editar paciente", edit_path(@patient), class: "btn btn-primary" %>
         <p>
 
-      
+
       <%= form_with(model: @patient, method: :delete, local: true, data: { controller: 'destroy', action: 'click->destroy#delete' }) do |form| %>
       <%= form.button 'Eliminar', class: 'btn btn-danger', data: { delete_url: patient_path(@patient) } %>
       <% end %>
@@ -76,11 +78,9 @@
  <li><%= link_to "Eliminar paciente", patients_path(@patient), class: "btn btn-danger", data: {
                 turbo_method: :delete,
                 turbo_confirm: "¿Esta seguro de querer eliminar este paciente?"
-                } %></li> 
+                } %></li>
 <%
 =end%>
       <% end %>
   </main>
 </body>
-
-

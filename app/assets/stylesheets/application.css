@@ -188,6 +188,75 @@ table {
   animation: glowing 2s infinite;
 }
 
+/* estilos barra de usuario */
+.user_settings {
+  position: fixed;
+  right: 20px;
+  top: 200px;
+  background-color: #000b0f;
+  color:var(--color-text-off);
+  text-shadow: var(--color-text-shadow);
+  justify-content: center; 
+  border-radius: 5px;
+
+}
+
+.user_settings ul li {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  border-radius: 5px;
+
+}
+
+.user_settings ul li a {
+  font-family: 'Roboto', sans-serif;
+  color: var(--color-quaternary);
+  text-shadow: 2px 2px 4px var(--color-quaternary);
+  border-radius: 5px;
+}
+
+.user_settings ul li ul {
+  display: none;
+  position: absolute;
+  background-color: none;
+}
+
+.user_settings ul li:hover {
+  animation: glowing 2s infinite;
+}
+
+
+.user_settings ul li:hover ul {
+  display: block;
+}
+
+
+.user_settings ul li a:hover {
+  color: #fff;
+  text-shadow: 0 0 2px var(--color-text-shadow), 0 0 5px var(--color-text-shadow), 0 0 10px var(--color-text-shadow), 0 0 15px var(--color-text-shadow);
+}
+
+
+.user_settings ul li ul li {
+  color: var(--color-quaternary);
+  text-shadow: 2px 2px 4px var(--color-primary);
+  display: block;
+  transition: background-color 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  color: var(--color-quaternary);
+  text-shadow: 2px 2px 4px var(--color-primary);
+}
+
+
+.user_settings ul li ul li:hover {
+  background-color: var(--color-accent); 
+  color: var(--color-quaternary);
+  text-shadow: 0 0 2px var(--color-quaternary), 0 0 5px var(--color-quaternary), 0 0 10px var(--color-quaternary), 0 0 15px var(--color-quaternary);
+  animation: glowing 2s infinite;
+}
+
+
 .init a {
   display: inline-block;
   width: 200px; 

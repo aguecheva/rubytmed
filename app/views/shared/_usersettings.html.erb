@@ -1,0 +1,12 @@
+<nav class="user_settings">
+  <ul>
+    <% if user_signed_in? %>
+      <li class="user_icon"><%= link_to 'ICO', user_path(current_user) %></li>
+      <li class="user_config"><%= link_to 'CONFIG', edit_user_registration_path %></li>
+      <li class="user_info"><%= link_to 'INFO', user_path(current_user) %></li>
+      <li class="user_name">Logged in as: <%= current_user.username %></li>
+    <% else %>
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
+    <% end %>
+  </ul>
+</nav>

@@ -6,7 +6,7 @@
     <h2>Mis pacientes</h2>
   </header>
 
-<%= image_tag @patient.photo, width: 200  %>
+<%= image_tag @patient.photo, width: 200 if @patient.photo.present? %>
 
   <main>
 
@@ -64,7 +64,7 @@
       <%= form_with(model: @patient, local: true) do |form| %>
 
         <p>
-        <%= link_to "Editar paciente", edit_path(@patient), class: "btn btn-primary" %>
+        <%= link_to "Editar paciente", edit_patient_path(@patient), class: "btn btn-primary" %>
         <p>
 
 

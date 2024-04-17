@@ -3,16 +3,6 @@ Rails.application.routes.draw do
 
   get 'home/show', to: 'home#show', as: 'home_show'
 
-  get '/patients/new', to: 'patients#new', as: 'new_patient'
-  get '/patients/:id', to: 'patients#show', as: 'patient'
-  post '/patients', to: 'patients#create'
-  get '/patients/:id/edit', to: 'patients#edit', as: 'edit'
-  patch '/patients/:id', to: 'patients#update'
-  delete '/patients/:id', to: 'patients#destroy'
-  get '/patients', to: 'patients#index'
-
-
-
   devise_for :users
   resources :users
 

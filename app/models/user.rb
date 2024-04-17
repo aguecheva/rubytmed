@@ -17,17 +17,16 @@ devise :database_authenticatable, :registerable,
         message: 'email invalido'
     }
 
-    class Doctor < User
+    # class Doctor < User
 
+    # end
 
-    end
+    # class Nurse < User
 
-    class Nurse < User
+    # end
 
-    end
+    # class Admin < User
 
-    class Admin < User
-
-    end
+    # end
 
 end

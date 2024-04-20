@@ -3,15 +3,11 @@ class PatientsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
     if params[:q]
       @patients = Patient.where("name LIKE ? OR lastname LIKE ? OR dni LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
     else
       @patients = Patient.all
     end
-
-
-
   end
 
   def new

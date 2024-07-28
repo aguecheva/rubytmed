@@ -1,32 +1,18 @@
-# En tu modelo de User
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-  has_many :patients
+  has_secure_password
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :validatable
+  encrypts :token
+  blind_index :token
 
-    validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true
+  validates :password, presence: true
+  validates :token, uniqueness: true, allow_blank: true
 
-    validates :password, confirmation: true
-
-    validates :email, presence: true, uniqueness: true,
-        format: {
-        with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ ,
-        message: 'email invalido'
-    }
-
-    # class Doctor < User
-
-    # end
-
-    # class Nurse < User
-
-    # end
-
-    # class Admin < User
-
-    # end
-
+  def set_token!
+    self[:token] = SecureRandom.hex
+    save!
+    token
+  end
 end

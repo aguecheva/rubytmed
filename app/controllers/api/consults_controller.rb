@@ -1,4 +1,4 @@
-class Api::consultsController < Api::BaseController
+class Api::ConsultsController < Api::BaseController
 
   def index
     render status: 200,

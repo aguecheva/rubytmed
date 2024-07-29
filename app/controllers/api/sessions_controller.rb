@@ -1,9 +1,18 @@
 class Api::SessionsController < Api::BaseController
   def login
-    user = User.find_by(username: username)
+    user = User.find_by(username: user_params[:username])
 
-    return head :forbidden unless user.present? && user.authenticate(password)
+    if user.present? && user.authenticate(user_params[:password])
+      token = user.set_token!
+      render status: 200, ok: true, json: { token: token }
+    else
+      head status: 401, ok: false
+    end
+  end
 
-    render json: { token: user.private_api_key }
+  private
+
+  def user_params
+    params.permit(:username, :password)
   end
 end

@@ -13,5 +13,6 @@ class User < ApplicationRecord
   def set_token!
     self.token = SecureRandom.hex
     save!(validate: false)
+    token
   end
 end

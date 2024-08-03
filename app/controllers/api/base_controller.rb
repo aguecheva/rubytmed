@@ -13,6 +13,8 @@ class Api::BaseController < ActionController::API
     authenticate_with_http_token do |token, _options|
       @current_user = User.find_by token: token
     end
+
+    return head :unauthorized unless current_user
   end
 
   def json

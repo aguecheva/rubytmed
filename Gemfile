@@ -72,3 +72,4 @@ gem 'jquery-rails', '~> 4.4'
 gem 'byebug'
 gem "lockbox"
 gem "blind_index", "~> 2.2"
+gem 'rack-cors'

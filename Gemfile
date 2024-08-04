@@ -73,3 +73,4 @@ gem 'byebug'
 gem "lockbox"
 gem "blind_index", "~> 2.2"
 gem 'rack-cors'
+gem 'dotenv-rails', groups: [:development, :test]

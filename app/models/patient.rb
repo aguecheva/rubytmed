@@ -1,7 +1,7 @@
 class Patient < ApplicationRecord
 #    belongs_to :User
     has_many :consults
-    has_one_attached :photo
+    # has_one_attached :photo
 
     validates :name, presence: true
     validates :lastname , presence: true

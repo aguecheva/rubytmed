@@ -1,25 +1,35 @@
-class Api::BaseController < ActionController::API
-  include ActionController::HttpAuthentication::Basic::ControllerMethods
-  include ActionController::HttpAuthentication::Token::ControllerMethods
-  include ActionController::ImplicitRender
+class Api::PatientsController < Api::BaseController
+  before_action :authenticate_user! 
 
-  attr_reader :current_user
+  def index
+    render status: 200,
+           json: { ok: true, data: Patient.all }
+  end
 
-  before_action :authenticate_user_with_token
+  def show
+    patient = Patient.find_by(id: params[:id])
+
+    if patient
+      render status: 200,
+             json: { ok: true, data: patient }
+    else
+      render status: 404, json: { ok: false, error: 'Patient not found' }
+    end
+  end
+
+  def create
+    patient = Patient.new(patient_params)
+
+    if patient.save
+      render status: 200, json: { ok: true, data: patient }
+    else
+      render status: 422, json: { ok: false, errors: patient.errors.full_messages }
+    end
+  end
 
   private
 
-  def authenticate_user_with_token
-    authenticate_with_http_token do |token, _options|
-      @current_user = User.find_by token: token
-    end
-
-    return head :unauthorized unless current_user
-  end
-
-  def json
-    @json ||= HashWithIndifferentAccess.new JSON.parse(request.raw_post)
-  rescue
-    {}
+  def patient_params
+    params.permit(:name, :lastname, :dni, :birth_date)
   end
 end

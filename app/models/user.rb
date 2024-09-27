@@ -10,9 +10,12 @@ class User < ApplicationRecord
   validates :password, presence: true, if: :new_record?
   validates :token, uniqueness: true, allow_blank: true
 
+
   def set_token!
-    self.token = SecureRandom.hex
-    save!(validate: false)
+    token = SecureRandom.hex(10)
+    update(authentication_token: token)
     token
   end
+
+
 end

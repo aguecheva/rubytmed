@@ -15,13 +15,13 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = Patient.new(patient_params)
-    if @patient.save
-      redirect_to @patient, notice: t('.created')
-    else
-      render 'new', status: :unprocessable_entity
-    end
+  @patient = Patient.new(patient_params)
+  if @patient.save
+    render json: { message: 'Patient created successfully!', patient: @patient }, status: :created
+  else
+    render json: { errors: @patient.errors.full_messages }, status: :unprocessable_entity
   end
+end
 
   def show
     @patient = Patient.find(params[:id])
@@ -63,7 +63,8 @@ class PatientsController < ApplicationController
 
   private
     def patient_params
-        params.require(:patient).permit(:name, :lastname, :dni, :birth_date, :consult_record, :photo)
+        params.require(:patient).permit(:name, :lastname, :dni, :birth_date, :consult_record,)
+        #faltaria :photo
     end
 
 end

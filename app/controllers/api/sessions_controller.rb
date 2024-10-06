@@ -1,5 +1,5 @@
 class Api::SessionsController < Api::BaseController
-  before_action :authenticate_user_with_token, only: [:login, :signup]
+  skip_before_action :authenticate_user_with_token, only: [:login, :signup]
 
   def login
     user = User.find_by(username: params[:username])

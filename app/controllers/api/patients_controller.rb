@@ -1,5 +1,4 @@
 class Api::PatientsController < Api::BaseController
-  before_action :authenticate_user!
   def index
     render status: 200,
     ok: true,

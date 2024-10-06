@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   def set_token!
     token = SecureRandom.hex(10)
-    update(authentication_token: token)
+    update(token: token)
     token
   end
 

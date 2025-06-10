@@ -42,6 +42,6 @@ class Api::ConsultsController < Api::BaseController
     end
   end
   def consult_params
-    params.permit()
+     params.permit(:description, :patient_id)
   end
 end

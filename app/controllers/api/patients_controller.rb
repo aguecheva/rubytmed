@@ -43,4 +43,14 @@ class Api::PatientsController < Api::BaseController
   def patient_params
     params.permit(:name, :lastname, :dni, :birth_date)
   end
+
+  def index
+  if params[:q]
+    @patients = Patient.where("name LIKE ? OR lastname LIKE ? OR dni LIKE ?",
+                              "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
+  else
+    @patients = Patient.all
+  end
+
+  render status: 200, ok: true, json: { data: @patients }
 end
